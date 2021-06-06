@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Bienvenido a MedicApp</h1>
+<div mat-dialog-content>
+  <p>
+    Por favor ingresa todos tus datos para poder registrate en nuestro sistema.
+  </p>
+  <hr>
+
+  <!-- * FORM -->
+  <form novalidate [formGroup]="register" (ngSubmit)="sendConfirmation()">
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Correo</label>
+      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp"
+      placeholder="medicApp@gmail.com" formControlName="emailInput">
+      <div id="emailHelp" class="form-text">No compartiremos tu información con nadie más.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nameInput" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nameInput" placeholder="Ulises Alv"
+      formControlName="nameInput">
+    </div>
+
+        <div class="mb-3">
+      <label for="usrNameInput" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="usrNameInput" placeholder="Carlos_Rifa"
+      formControlName="usrNameInput">
+    </div>
+
+    <div class="mb-3">
+      <label for="passwdInput" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="passwdInput"
+      formControlName="passwdInput">
+    </div>
+
+    <p><span>Seleccione el rol:</span></p>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="rolInput" id="flexRadioDefault1"
+      value="Med" formControlName="rolInput">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Médico
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="rolInput" id="flexRadioDefault2" checked
+      value="Enf" formControlName="rolInput">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Enfermera
+      </label>
+    </div>
+
+    <hr>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="submitData()"
+      class="btn btn-block btn-success"
+      [disabled]="register.invalid">Registrarse</button>
+    </div>
+  </form>
+<hr>

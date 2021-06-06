@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+
+import { GlobalModel } from '../common/global.model';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UsersService {
+originUrl = GlobalModel.apiURL;
+actions = GlobalModel.querysUsers;
 
   constructor(private _http: HttpClient) {
     console.log('User Service loaded...');
   }
 
-  getQuery(str: string) {
-    const url = `http://localhost:3000/${str}`;
+  get() { return this._http.get(`${this.originUrl}${this.actions.GetAll}`); }
 
-    return this._http.get(url);
-  }
+  getByID(id: any) { return this._http.get(`${this.originUrl}${this.actions.GetID}${id}`); }
+
+  getConfirmation(mail: any) { return this._http.get(`${this.originUrl}${this.actions.Correo}${mail}`) }
+
+  post(body: any) { return this._http.post(`${this.originUrl}${this.actions.PostUsr}`, body).toPromise(); }
+
 }

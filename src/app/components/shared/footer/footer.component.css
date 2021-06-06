@@ -1,0 +1,16 @@
+.footerIcons a {
+  transition: all .4s ease-in-out !important;
+}
+
+.footIcons a :hover {
+  color: rgb(19, 202, 141) !important;
+  text-shadow: 2px 2px 3px rgb(63, 77, 77);
+}
+
+h6 {
+  color: rgb(19, 202, 141) !important;
+}
+
+i {
+  font-size: 1.2rem;
+}

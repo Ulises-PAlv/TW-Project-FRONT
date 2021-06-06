@@ -1,1 +1,91 @@
-<p>login works!</p>
+<div class="bodyLogIn">
+  <div class="row">
+    <div class="col-6 m-5">
+      <div class="container">
+        <div class="p-5 bgAblack">
+          <h3>Indicaciones de MedicApp</h3>
+          <hr />
+
+          <ul>
+            <li>
+              Se requiere de un usuario para poder acceder al sistema, ya sea
+              siendo Medico, Usuario/Paciente , o Enfermera.
+            </li>
+            <li>Cuenta Enfermera: Eli_Admin : 2709</li>
+            <li>...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="login-form">
+        <form novalidate [formGroup]="logIn" (ngSubmit)="validateUsr()">
+          <h2 class="text-center titleOR">
+            Log in <i class="fas fa-user-md mx-2"></i>
+          </h2>
+
+          <div class="form-group my-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              required="required"
+              formControlName="usrName"
+            />
+            <div
+              class="error"
+              *ngIf="
+                logIn.get('usrName').hasError('required') &&
+                logIn.get('usrName').touched
+              "
+            >
+              <p class="errorMsg">* Nombre de usuario requerido</p>
+            </div>
+          </div>
+          <div class="form-group my-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              required="required"
+              formControlName="passwd"
+            />
+            <div
+              class="error"
+              *ngIf="
+                logIn.get('passwd').hasError('required') &&
+                logIn.get('passwd').touched
+              "
+            >
+              <p class="errorMsg">* Contraseña requerida</p>
+            </div>
+          </div>
+
+          <div class="form-group mb-3 d-grid gap-2">
+            <button
+              type="submit"
+              class="btn btn-outline-info"
+              [disabled]="logIn.invalid"
+            >
+              <i class="fas fa-door-open mx-2"></i>Log in
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              mat-raised-button
+              (click)="openDialog()"
+            >
+              <i class="fas fa-person-booth mx-2"></i>Create an account
+            </button>
+            <div class="clearfix my-3">
+              <label class="pull-left checkbox-inline d-block text-center"
+                ><input type="checkbox" /> Remember me</label
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

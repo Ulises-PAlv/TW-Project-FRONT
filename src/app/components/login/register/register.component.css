@@ -1,0 +1,8 @@
+input {
+  background-color: rgb(80, 76, 76) !important;
+}
+
+select {
+  background-color: rgb(80, 76, 76) !important;
+  color: white !important;
+}
