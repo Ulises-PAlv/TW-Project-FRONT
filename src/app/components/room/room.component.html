@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="videos">
+     <app-video [stream]="user" *ngFor="let user of listUser"></app-video>
+  </div>
+  <div id="menu">
+     <button *ngIf="bandAudio" (click)="changeAudio()"><span><i class="fas fa-microphone-slash fa-3x"></i></span></button>
+     <button *ngIf="!bandAudio" (click)="changeAudio()"><span><i class="fas fa-microphone fa-3x"></i></span></button>
+     <button (click)="goToReceta()"><span><i class="fas fa-phone-slash fa-3x"></i></span></button>
+
+  </div>
+  </div>

@@ -1,0 +1,34 @@
+<div class="container"></div>
+<div id="doc-conectados">
+  <h1 id="titulo">Llama a un Medico en linea</h1>
+  <div id="tabla">
+    <table class="table table-info tabla-hover">
+      <caption>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="refrescar()"
+        >
+          Refrescar
+        </button>
+      </caption>
+      <tr>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Llamada</th>
+      </tr>
+      <tr *ngFor="let i of index" id="{{ i }}">
+        <td>DR. {{ UsersConnects[i].Nombre }}</td>
+        <td>
+          {{ UsersConnects[i].Estado }}
+        </td>
+        <td>
+          <button (click)="gotoCall(UsersConnects[i].Nombre)">
+            <i class="fas fa-phone-volume" style="font-weight:2rem;"></i>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div></div>
+</div>

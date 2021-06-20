@@ -21,6 +21,7 @@ export interface DialogData {
 
 export class LoginComponent implements OnInit {
   resultsUsr = [];
+  user: any;
   bandLogIn: boolean = false;
   logIn: any;
 
@@ -61,21 +62,38 @@ export class LoginComponent implements OnInit {
     this.resultsUsr.forEach((user: any) => {
       if (user.UsrName == formValues.usrName && user.Pswd == formValues.passwd) {
         this.bandLogIn = true;
+        this['user'] = user;
+
+        if(user.Role == "Med"){
+          var Objconectar = {
+            Nombre: user.Nombre,
+            Estado: "Desocupado"
+          };
+          this._usrService.postConect(Objconectar).then(data => {
+            console.log(data);
+          })
+        }
       }
     });
 
-    this.nextStep(formValues.usrName);
+    this.nextStep(formValues.usrName, this.user.Nombre, this.user.Role);
   }
 
-  nextStep( key: any ) {
+  nextStep( key: any, name?: string, role?: string ) {
     if( !this.bandLogIn ) {
       window.alert("Has tenido un fallo en el usuario o contraseña, intenta nuevamente...");
       location.reload();
     } else {
+      var bodyStorage = {
+        userName: key,
+        name: name,
+        rol: role
+      }
+
       if(localStorage.getItem('usrTmp')) {
-          localStorage.removeItem('usrTmp'); localStorage.setItem('usrTmp', key);
+          localStorage.removeItem('usrTmp'); localStorage.setItem('usrTmp', JSON.stringify(bodyStorage));
         } else {
-          localStorage.setItem('usrTmp', key);
+          localStorage.setItem('usrTmp', JSON.stringify(bodyStorage));
         }
       this.document.location.href = '../home';
     }

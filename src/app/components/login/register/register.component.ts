@@ -63,7 +63,6 @@ ROL_LIST = {
     let serverResp;
     await this._usrService.getConfirmation(formValues.emailInput).toPromise().then((data: any) => {
       serverResp = data;
-      console.log(serverResp);
     });
   }
 }

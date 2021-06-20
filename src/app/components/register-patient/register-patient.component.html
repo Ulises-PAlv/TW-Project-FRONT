@@ -1,0 +1,125 @@
+<div class="container my-4">
+  <h1 class="text-center">Registrar paciente</h1>
+  <h5 class="text-center">Es necesario crear un expediente clicnico primero antes de registrar al paciente.</h5>
+  <hr>
+  <h4 class="text-center hospHR">
+    <i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i>
+  </h4>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="containerForm">
+        <form novalidate [formGroup]="register" (ngSubmit)="registerPatient()">
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" placeholder="Nombre"
+              formControlName="nombreInput">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEstado" class="col-sm-2 col-form-label">Estado</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputEstado" placeholder="Tlaxcala"
+              formControlName="estadoInput">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputLocalidad" class="col-sm-2 col-form-label">Localidad</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputLocalidad" placeholder="Villa Juarez"
+              formControlName="localidadInput">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="inputEdad" class="my-2">Edad</label>
+              <input type="number" class="form-control" id="inputEdad" placeholder="18" min="0" max="99"
+              formControlName="edadInput">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputGenero" class="my-2">Genero</label>
+              <input type="text" class="form-control" id="inputGenero" placeholder="~~~"
+              formControlName="generoInput">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputTelefono" class="my-2">Telefono</label>
+              <input type="text" class="form-control" id="inputTelefono" placeholder="4491234567"
+              formControlName="telefonoInput">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-outline-info btn-lg btn-block"
+          [disabled]="register.invalid"><i class="fas fa-user-injured mx-2"></i>Registrar usuario</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-6 my-4">
+      <form novalidate [formGroup]="expedient" (ngSubmit)="createExpedient()">
+        <div class="form-group row">
+          <label for="inputMalestar" class="col-sm-2 col-form-label">Malestar</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputMalestar" placeholder="Dolor de cabeza, fiebre"
+            formControlName="malestarInput">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputHistorial" class="col-sm-2 col-form-label">Historial</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputHistorial" placeholder="Infección urinaria detectada"
+            formControlName="historialInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="inputFecha">Fecha</label>
+            <input type="text" class="form-control" id="inputFecha" placeholder="19/10/2021"
+            formControlName="fechaInput">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputPeso">Peso</label>
+            <input type="number" class="form-control" id="inputPeso" placeholder="" min="0" max="350"
+            formControlName="pesoInput">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputTalla">Talla</label>
+            <input type="text" class="form-control" id="inputTalla" placeholder=""
+            formControlName="tallaInput">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputAltura">Altura</label>
+            <input type="text" class="form-control" id="inputAltura" placeholder=""
+            formControlName="alturaInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="inputPresion">Presion arterial</label>
+            <input type="text" class="form-control" id="inputPresion" placeholder="150/89"
+            formControlName="presionInput">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputTemperatura">Temperatura</label>
+            <input type="text" class="form-control" id="inputTemperatura" placeholder=""
+            formControlName="temperaturaInput">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputPulso">Pulso cardiaco</label>
+            <input type="number" class="form-control" id="inputPulso" placeholder="" min="0" max="200"
+            formControlName="pulsoInput">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info btn-lg btn-block"
+        [disabled]="expedient.invalid"><i class="fas fa-file-signature mx-1"></i>Agregar expediente</button>
+      </form>
+    </div>
+  </div>
+</div>

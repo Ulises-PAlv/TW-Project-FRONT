@@ -25,4 +25,12 @@ actions = GlobalModel.querysUsers;
 
   post(body: any) { return this._http.post(`${this.originUrl}${this.actions.PostUsr}`, body).toPromise(); }
 
+  postConect(body: any) { return this._http.post(`${this.originUrl}${this.actions.PostConect}`, body).toPromise(); }
+
+  getConect() { return this._http.get(`${this.originUrl}${this.actions.GetConect}`); }
+
+  getChange(nombre: any){ return this._http.get(`${this.originUrl}${this.actions.ChangeSate}${nombre}`); }
+
+  desconectarMed(body: any) { return this._http.post(`${this.originUrl}${this.actions.Desconect}`, body).toPromise(); }
+
 }

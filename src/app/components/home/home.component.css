@@ -1,0 +1,18 @@
+.carousel {
+  border: 10px solid rgb(19, 202, 141);
+  border-radius: .7rem;
+  width: 45rem;
+}
+
+.carousel-caption h5 {
+  font-weight: bolder;
+  color: black;
+}
+
+.carousel-caption p {
+  color: black;
+}
+
+.jumbotron {
+  background-color: rgba(232, 229, 217, 0.494);
+}

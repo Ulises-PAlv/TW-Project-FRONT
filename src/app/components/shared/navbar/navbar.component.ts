@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   usrName: any;
 
-  constructor( public _router: Router ) {
+  constructor( public _router: Router, private _usrService: UsersService ) {
     this.usrName = localStorage.getItem('usrTmp');
   }
 
@@ -18,6 +19,16 @@ export class NavbarComponent implements OnInit {
 
   // ?? Funciones
   logOut() {
+    let auxStorage = JSON.parse(localStorage.getItem('usrTmp') || '{}');
+    var objUsr = {
+      Nombre: auxStorage.name,
+      Estado: 'Ocupado'
+    };
+
+    this._usrService.desconectarMed(objUsr).then((data: any) => {
+      console.log(data);
+    });
+
     localStorage.clear();
     location.href = './login';
   }

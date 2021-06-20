@@ -8,7 +8,25 @@ export class GlobalModel {
     GetID: '/user/',
     PostUsr: '/registro',
     Correo: '/correo/',
-    Aux: '/user/'
+    Aux: '/user/',
+    PostConect: '/conectados',
+    GetConect: '/conectados',
+    ChangeSate: '/cambiarEstado/',
+    Desconect: '/desconectar'
+  };
+
+  public static querysPatients = {
+    PostRegister: '/RegistroPac',
+    GetAll: '/paciente',
+    GetPatient: '/paciente/',
+    DeletePatient: '/borrarPaciente'
+  };
+
+  public static querysExpedientes = {
+    PostCreate: '/RegistroExp',
+    GetAll: '/expediente',
+    GetExpedient: '/expediente/',
+    UpdateExpediente: '/expediente'
   };
 
 }

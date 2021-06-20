@@ -18,10 +18,18 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BuscarComponent } from './components/buscar/buscar.component';
+import { VideoComponent } from './components/room/video/video.component';
+import { RoomComponent } from './components/room/room.component';
 
 // !! ANGULAR MATERIAL
 import { AngularMaterialModule } from './material.module';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { RegisterPatientComponent } from './components/register-patient/register-patient.component';
+
+import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+
+const config: SocketIoConfig = {url: 'http://localhost:3002', options: {withCredentials: '*'}};
 
 @NgModule({
   declarations: [
@@ -32,7 +40,11 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    RegisterPatientComponent,
+    BuscarComponent,
+    RoomComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +53,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
