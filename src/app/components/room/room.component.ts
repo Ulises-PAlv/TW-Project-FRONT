@@ -146,12 +146,19 @@ export class RoomComponent implements OnInit {
 
     console.log("rol del men: " + auxStorage.rol);
     if(auxStorage.rol == "Med"){
+      this.colgarDoc();
       this.router.navigate(['/', 'Receta']);
     }else if(auxStorage.rol == "Enf") {
       this.router.navigate(['/', 'home']);
     }else{
       console.error("Estas mal en el rol compare");
     }
+  }
+
+  async colgarDoc() {
+    this._usrService.popDoc().toPromise().then((data: any) => {
+      console.log(data);
+    });
   }
 
   async getCallPaciente() {
@@ -163,6 +170,7 @@ export class RoomComponent implements OnInit {
   }
 
   async findExpediente(id: any) {
+    console.log(id);
     console.log('Funcion expediente ' + this.patCall);
 
     this._expService.getByID(id).toPromise().then((data: any) => {
@@ -174,7 +182,9 @@ export class RoomComponent implements OnInit {
   }
 
   async findPaciente(id: any) {
+    console.log(id);
     await this._patService.getByID(id).toPromise().then((data: any) => {
+      console.log(data);
       this.paciente = data.array;
       console.log(this.paciente);
       this.wardPaciente(this.paciente.Nombre)

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 import { GlobalModel } from '../common/global.model';
-import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

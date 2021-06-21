@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="text-center">Historial</h1>
+  <hr>
+  <h4 class="text-center hospHR">
+    <i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i>
+  </h4>
+
+  <div class="container">
+    <table class="table my-4">
+      <thead class="thead-light">
+        <th scope="col">ID</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Historial</th>
+        <th scope="col">Motivo</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Presion arterial</th>
+        <th scope="col">Pulso cardiaco</th>
+        <th scope="col">Talla</th>
+        <th scope="col">Altura</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expediente of results">
+          <th scope="row">{{expediente.ExpID}}</th>
+          <td>{{expediente.Fecha}}</td>
+          <td>{{expediente.HistorialMedico}}</td>
+          <td>{{expediente.MotivoConsulta}}</td>
+          <td>{{expediente.Peso}}</td>
+          <td>{{expediente.PresionArt}}</td>
+          <td>{{expediente.PulsoCardiaco}}</td>
+          <td>{{expediente.Talla}}</td>
+          <td>{{expediente.Altura}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

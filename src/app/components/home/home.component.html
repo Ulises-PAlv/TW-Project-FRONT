@@ -79,7 +79,8 @@
 
           <ng-container *ngIf="logUser.Role === 'Med'">
             <div class="d-grid gap-2">
-              <button class="btn btn-info" type="button"><i class="fas fa-print mx-2"></i>Historial de pacientes</button>
+              <button class="btn btn-info" type="button"
+              (click)="goToHistorial()"><i class="fas fa-print mx-2"></i>Historial de pacientes</button>
               <button class="btn btn-primary" type="button"
               (click)="gotToEstadisticas()"><i class="fas fa-chart-bar mx-2"></i>Ver estadisticas</button>
             </div>

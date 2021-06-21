@@ -15,7 +15,8 @@ export class GlobalModel {
     Desconect: '/desconectar',
     Receta: '/receta',
     getDoctor: '/ConectarDoctor/',
-    Notify: '/obtenerDoctor'
+    Notify: '/obtenerDoctor',
+    popDoc: '/EliminarDoc'
   };
 
   public static querysPatients = {

@@ -1,21 +1,3 @@
-<!-- <div class="container">
-  <div class="videos">
-    <app-video [stream]="user" *ngFor="let user of listUser"></app-video>
-  </div>
-  <div id="menu">
-    <button *ngIf="bandAudio" (click)="changeAudio()">
-      <span><i class="fas fa-microphone-slash fa-3x"></i></span>
-    </button>
-    <button *ngIf="!bandAudio" (click)="changeAudio()">
-      <span><i class="fas fa-microphone fa-3x"></i></span>
-    </button>
-    <button >
-      <span><i class="fas fa-phone-slash fa-3x"></i></span>
-    </button>
-  </div>
-</div>
--->
-
 <div class="container py-4">
   <div class="row">
     <div class="col-7">
@@ -23,10 +5,9 @@
         <h2 class="text-center">Consulta medica</h2>
         <hr />
 
-        <div class="centerVideo">
+        <div class="centerVideo" *ngFor="let user of listUser">
           <app-video
             [stream]="user"
-            *ngFor="let user of listUser"
             style="display: block"
             class="my-2"
           ></app-video>
@@ -48,7 +29,6 @@
                 <button type="button" class="btn btn-success" style="font-weight: 2rem;"
                 (click)="changeAudio()"><i class="fas fa-microphone-alt mx-2"></i>Unmute</button>
               </ng-template>
-
               <button type="button" class="btn btn-danger" style="font-weight: 2rem;"
               (click)="goToReceta()"><i class="fas fa-door-open mx-2"></i>Salir</button>
             </div>

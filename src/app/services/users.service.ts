@@ -40,4 +40,6 @@ actions = GlobalModel.querysUsers;
   conectarDoctor(name: any) { return this._http.get(`${this.originUrl}${this.actions.getDoctor}${name}`); }
 
   getNotify() { return this._http.get(`${this.originUrl}${this.actions.Notify}`); }
+
+  popDoc() { return this._http.get(`${this.originUrl}${this.actions.popDoc}`); }
 }

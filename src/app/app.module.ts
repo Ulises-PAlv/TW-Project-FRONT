@@ -23,6 +23,7 @@ import { VideoComponent } from './components/room/video/video.component';
 import { RoomComponent } from './components/room/room.component';
 import { PDFOutPutComponent } from './components/pdfout-put/pdfout-put.component';
 import { RecetaComponent } from './components/receta/receta.component';
+import { NotifyComponent } from './components/home/notify/notify.component';
 // import { StatsNGraphsComponent } from './components/StatsNGraphs/stats-ngraphs.component';
 
 // !! ANGULAR MATERIAL
@@ -31,6 +32,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegisterPatientComponent } from './components/register-patient/register-patient.component';
 
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+import { HistorialComponent } from './components/historial/historial.component';
 
 const config: SocketIoConfig = {url: 'http://localhost:3002', options: {withCredentials: '*'}};
 
@@ -50,6 +52,8 @@ const config: SocketIoConfig = {url: 'http://localhost:3002', options: {withCred
     RoomComponent,
     VideoComponent,
     PDFOutPutComponent,
+    NotifyComponent,
+    HistorialComponent,
     // StatsNGraphsComponent
   ],
   imports: [

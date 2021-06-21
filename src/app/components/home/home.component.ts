@@ -3,12 +3,15 @@ import { UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { interval, Subscription } from 'rxjs';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NotifyComponent } from './notify/notify.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 // ?? VARIABLES
 localStrorageUsrName: any;
@@ -22,7 +25,8 @@ notifyCont: number = 0;
   constructor(
     private _usrService: UsersService,
     private _patService: PacientesService,
-    private _router: Router
+    private _router: Router,
+    public dialog: MatDialog
   ) {
     this.auxStorage = JSON.parse(localStorage.getItem('usrTmp') || '{}');
     this.localStrorageUsrName = this.auxStorage.userName;
@@ -31,7 +35,6 @@ notifyCont: number = 0;
 
   ngOnInit(): void {
     if(this.auxStorage.rol === 'Med') {
-      console.log('XD');
       const source = interval(7000);
       this.subscription = source.subscribe(val => this.opensnack());
     }
@@ -59,7 +62,14 @@ notifyCont: number = 0;
 
   showNotify(nomDoc: any) {
     if(this.notifyCont <= 1) {
-      alert(`Dr. ${nomDoc} quieren marcarte mi prro`);
+      const dialogRef = this.dialog.open(NotifyComponent, {
+        width: '550px',
+        data: nomDoc
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
     }
   }
 
@@ -125,7 +135,11 @@ notifyCont: number = 0;
     })
   }
 
-  gotToEstadisticas() {
-    this._router.navigate(['/estadisticas']);
+  gotToEstadisticas(): void {
+    // this._router.navigate(['/estadisticas']);
+  }
+
+  goToHistorial() {
+    this._router.navigate(['/historial']);
   }
 }
