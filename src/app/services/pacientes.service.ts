@@ -22,4 +22,8 @@ actions = GlobalModel.querysPatients;
   getByID(id: any) { return this._http.get(`${this.originUrl}${this.actions.GetPatient}${id}`); }
 
   post(body: any) { return this._http.post(`${this.originUrl}${this.actions.PostRegister}`, body).toPromise(); }
+
+  getCallSave(id: any) { return this._http.get(`${this.originUrl}${this.actions.CallPacienteSave}${id}`); }
+
+  getCall() { return this._http.get(`${this.originUrl}${this.actions.CallPacienteGet}`); }
 }

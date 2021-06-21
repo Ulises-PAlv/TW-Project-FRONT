@@ -1,34 +1,47 @@
 <div class="container"></div>
-<div id="doc-conectados">
+<div>
   <h1 id="titulo">Llama a un Medico en linea</h1>
-  <div id="tabla">
-    <table class="table table-info tabla-hover">
-      <caption>
-        <button
+  <h4 class="text-center hospHR">
+    <i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i>
+  </h4>
+
+  <div class="container mx-5 my-3">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of index" id="{{ i }}">
+            <th scope="row">DR. {{ UsersConnects[i].Nombre }}</th>
+            <td>{{ UsersConnects[i].Estado }}</td>
+            <td>
+              <button (click)="gotoCall(UsersConnects[i].Nombre)" class="btn btn-primary btn-block btn-phone"
+              *ngIf="UsersConnects[i].Estado !== 'Ocupado'; else ocupado">
+                <i class="fas fa-phone-volume" style="font-weight:2rem;"></i>
+              </button>
+
+              <ng-template #ocupado>
+                <button class="btn btn-danger btn-block btn-phone" disabled>
+                  <i class="fas fa-phone-slash" style="font-weight:2rem;"></i>
+              </button>
+              </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-info btn-block btn-refresh"
           (click)="refrescar()"
         >
           Refrescar
         </button>
-      </caption>
-      <tr>
-        <th>Nombre</th>
-        <th>Estado</th>
-        <th>Llamada</th>
-      </tr>
-      <tr *ngFor="let i of index" id="{{ i }}">
-        <td>DR. {{ UsersConnects[i].Nombre }}</td>
-        <td>
-          {{ UsersConnects[i].Estado }}
-        </td>
-        <td>
-          <button (click)="gotoCall(UsersConnects[i].Nombre)">
-            <i class="fas fa-phone-volume" style="font-weight:2rem;"></i>
-          </button>
-        </td>
-      </tr>
-    </table>
   </div>
-  <div></div>
 </div>
+
+

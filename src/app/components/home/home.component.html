@@ -55,13 +55,33 @@
               (click)="gotToRegisterComponent()"><i class="fas fa-clipboard-list mx-2"></i>Registrar paciente</button>
               <button class="btn btn-primary" type="button"
               (click)="goToConsultaComponent()"><i class="fas fa-headset mx-2"></i>Consulta</button>
+              <button class="btn btn-success" type="button"
+              (click)="showTablePacientes()"><i class="fas fa-user-plus mx-2"></i>Seleccionar paciente</button>
+
+              <ng-container *ngIf="bandShowTableUsr" class="container">
+                <table class="table my-4">
+                  <tbody>
+                      <tr *ngFor="let user of arrayUsers">
+                        <th scope="row">{{user.PacID}}</th>
+                        <td>
+                            <h4 style="font-size: 1rem;">{{user.Nombre}}</h4>
+                        </td>
+                        <td>
+                          <button class="btn btn-outline-success"
+                          (click)="addUserToStorage(user)" style="font-size: .8rem;">Seleccionar<i class="fas fa-child mx-1"></i></button>
+                        </td>
+                      </tr>
+                  </tbody>
+              </table>
+              </ng-container>
             </div>
           </ng-container>
 
           <ng-container *ngIf="logUser.Role === 'Med'">
             <div class="d-grid gap-2">
               <button class="btn btn-info" type="button"><i class="fas fa-print mx-2"></i>Historial de pacientes</button>
-              <button class="btn btn-primary" type="button"><i class="fas fa-headset mx-2"></i>Consulta</button>
+              <button class="btn btn-primary" type="button"
+              (click)="gotToEstadisticas()"><i class="fas fa-chart-bar mx-2"></i>Ver estadisticas</button>
             </div>
           </ng-container>
         </section>

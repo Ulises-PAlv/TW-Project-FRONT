@@ -1,0 +1,56 @@
+<div id="htmlData" class="container">
+  <div class="titulo">
+    <div>
+      <h2>Clinica Emrpesaurios</h2>
+      <h3>AV: Josefa ORitz de Doninguez #321</h3>
+      <h3>{{ Receta.Fecha }}</h3>
+    </div>
+    <div>
+      <img
+        src="../../../assets/img/logo Medicia.png"
+        alt="Not found image"
+        height="100"
+        width="70"
+      />
+    </div>
+  </div>
+
+  <div class="medico">
+    <h1>{{ Receta.Doctor }}</h1>
+    <h4>Medico</h4>
+  </div>
+
+  <div class="paciente">
+    <div>
+      <h3>Paciente: {{ Receta.Paciente }}</h3>
+    </div>
+    <div>
+      <h3>Razon de visita: {{ Receta.Razon }}</h3>
+    </div>
+  </div>
+
+  <div class="recet">
+    <div>
+      <h1>Tratamiento: {{ Receta.Tratamiento }}</h1>
+    </div>
+
+    <div>
+      <h1>Farmacos: {{ Receta.Farmacos }}</h1>
+    </div>
+  </div>
+
+  <div class="diagnostico">
+    <div>
+      <h2>Diagnostico: {{ Receta.Diagnostico }}</h2>
+    </div>
+    <div>
+      <h2>Firma</h2>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button class="btn btn-success btn-block" (click)="openPDF()">
+    Descargar Receta
+  </button>
+</div>

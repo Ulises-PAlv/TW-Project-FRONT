@@ -1,0 +1,61 @@
+<div class="container">
+    <h1 class="text-center">Hacer Receta</h1>
+    <hr>
+    <h4 class="text-center hospHR">
+      <i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i><i class="fas fa-ambulance mx-2"></i>
+    </h4>
+  
+    <div class="row">
+      <div class="col-12">
+        <div class="containerForm">
+          <form novalidate [formGroup]="receta" (ngSubmit)="MakeRecet()">
+            <div class="form-group row">
+              <label for="inputName" class="col-sm-2 col-form-label">Diagnostico</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputDiagnostico" placeholder="Comenzaremos con desiinflamatorios y beta bloqueadores"
+                formControlName="DiagnosticoInput">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="inputEstado" class="col-sm-2 col-form-label">Tratamiento</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTratamiento" placeholder="Unos tequilas"
+                formControlName="TratamientoInput">
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEstado" class="col-sm-2 col-form-label">Razon de visita</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputRazon" placeholder="le duele el pie"
+                  formControlName="RazonInput">
+                </div>
+              </div>
+  
+            <div class="form-group row">
+              <label for="inputLocalidad" class="col-sm-2 col-form-label">Farmacos</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputFarmacos" placeholder="Ibuprofeno"
+                formControlName="FarmacosInput">
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="inputEdad" class="my-2">Fecha</label>
+                <input type="text" class="form-control" id="inputFecha" placeholder="19/10/2021"
+                formControlName="FechaInput">
+              </div>
+              
+            </div>
+  
+            <button type="submit" class="btn btn-outline-info btn-lg btn-block"
+            [disabled]="receta.invalid"><i class="fas fa-user-injured mx-2"></i>Registrar usuario</button>
+          </form>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

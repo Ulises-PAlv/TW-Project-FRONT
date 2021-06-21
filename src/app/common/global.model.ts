@@ -12,14 +12,19 @@ export class GlobalModel {
     PostConect: '/conectados',
     GetConect: '/conectados',
     ChangeSate: '/cambiarEstado/',
-    Desconect: '/desconectar'
+    Desconect: '/desconectar',
+    Receta: '/receta',
+    getDoctor: '/ConectarDoctor/',
+    Notify: '/obtenerDoctor'
   };
 
   public static querysPatients = {
     PostRegister: '/RegistroPac',
     GetAll: '/paciente',
     GetPatient: '/paciente/',
-    DeletePatient: '/borrarPaciente'
+    DeletePatient: '/borrarPaciente',
+    CallPacienteSave: '/callPaciente/',
+    CallPacienteGet: '/callPaciente'
   };
 
   public static querysExpedientes = {

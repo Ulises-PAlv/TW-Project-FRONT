@@ -1,27 +1,28 @@
-.videos{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    padding-bottom: 30px;
+.videos {
+  align-items: center;
+  margin-top: 2rem;
 }
 
-#menu{
-    background-color: rgb(19, 202, 141);
-    margin: 30px;
-    text-align: center;
-   padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.centerVideo {
+  margin-left: 6.5rem !important;
 }
 
-button{
-    background-color: transparent;
-    border: 1px solid black;
+.btn-group {
+  margin-top: 1.5rem;
+  padding: .5rem;
+  width: 100%;
 }
 
-button:hover{
-    background-color: rgb(255 255 255 / 24%);
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: rgba(19, 202, 141, 0.5);
+  color: black;
+  font-weight: 700;
+}
+
+td {
+  text-align: center;
+  font-size: .8rem;
 }
 

@@ -5,9 +5,12 @@ import { Component,Input, OnInit } from '@angular/core';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
+
 export class VideoComponent implements OnInit {
-  @Input() stream: any;
-  constructor() { }
+@Input() stream: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -55,7 +55,10 @@ export class BuscarComponent implements OnInit {
   }
 
   gotoCall(nombre: any): void {
-    console.log('name del men' + nombre);
+    this._usrService.conectarDoctor(nombre).toPromise().then((data: any) => {
+      console.log(data);
+    });
+
     this._usrService
       .getChange(nombre)
       .toPromise()

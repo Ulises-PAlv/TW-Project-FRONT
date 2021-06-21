@@ -1,20 +1,16 @@
 video {
-    width:350px;
-    height: 250px;
+    width:21rem;
+    height: 12rem;
     object-fit: cover;
-    border: solid 2px rgb(19, 202, 141);
+    border: solid .4rem rgb(19, 202, 141);
+    border-radius: 1rem;
 }
-
-.video{
-    position: relative;
-}
-
 .label-name{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.289);
     position: absolute;
     padding: .25rem;
     bottom: 0;
-    margin: .55rem .15rem;
+    /* margin: .55rem .15rem !important; */
   }
 
 

@@ -33,4 +33,11 @@ actions = GlobalModel.querysUsers;
 
   desconectarMed(body: any) { return this._http.post(`${this.originUrl}${this.actions.Desconect}`, body).toPromise(); }
 
+  postReceta(body: any){ return this._http.post(`${this.originUrl}${this.actions.Receta}`, body).toPromise(); }
+
+  getReceta() { return this._http.get(`${this.originUrl}${this.actions.Receta}`); }
+
+  conectarDoctor(name: any) { return this._http.get(`${this.originUrl}${this.actions.getDoctor}${name}`); }
+
+  getNotify() { return this._http.get(`${this.originUrl}${this.actions.Notify}`); }
 }

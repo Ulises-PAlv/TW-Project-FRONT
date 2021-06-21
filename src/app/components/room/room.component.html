@@ -1,11 +1,95 @@
-<div class="container">
+<!-- <div class="container">
   <div class="videos">
-     <app-video [stream]="user" *ngFor="let user of listUser"></app-video>
+    <app-video [stream]="user" *ngFor="let user of listUser"></app-video>
   </div>
   <div id="menu">
-     <button *ngIf="bandAudio" (click)="changeAudio()"><span><i class="fas fa-microphone-slash fa-3x"></i></span></button>
-     <button *ngIf="!bandAudio" (click)="changeAudio()"><span><i class="fas fa-microphone fa-3x"></i></span></button>
-     <button (click)="goToReceta()"><span><i class="fas fa-phone-slash fa-3x"></i></span></button>
+    <button *ngIf="bandAudio" (click)="changeAudio()">
+      <span><i class="fas fa-microphone-slash fa-3x"></i></span>
+    </button>
+    <button *ngIf="!bandAudio" (click)="changeAudio()">
+      <span><i class="fas fa-microphone fa-3x"></i></span>
+    </button>
+    <button >
+      <span><i class="fas fa-phone-slash fa-3x"></i></span>
+    </button>
+  </div>
+</div>
+-->
 
+<div class="container py-4">
+  <div class="row">
+    <div class="col-7">
+      <section class="container my-3 mx-4">
+        <h2 class="text-center">Consulta medica</h2>
+        <hr />
+
+        <div class="centerVideo">
+          <app-video
+            [stream]="user"
+            *ngFor="let user of listUser"
+            style="display: block"
+            class="my-2"
+          ></app-video>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-5">
+      <section class="container my-3 mx-3">
+        <h3 class="text-center">Acciones</h3>
+        <hr>
+
+        <mat-tab-group animationDuration="2000ms">
+          <mat-tab label="Videollamada">
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-success" style="font-weight: 2rem;"
+              *ngIf="bandAudio; else changeStatus" (click)="changeAudio()"><i class="fas fa-microphone-alt-slash mx-2"></i>Mute</button>
+              <ng-template #changeStatus>
+                <button type="button" class="btn btn-success" style="font-weight: 2rem;"
+                (click)="changeAudio()"><i class="fas fa-microphone-alt mx-2"></i>Unmute</button>
+              </ng-template>
+
+              <button type="button" class="btn btn-danger" style="font-weight: 2rem;"
+              (click)="goToReceta()"><i class="fas fa-door-open mx-2"></i>Salir</button>
+            </div>
+          </mat-tab>
+          <div *ngIf="userStorage.rol === 'Med'">
+            <mat-tab label="Ver expediente">
+              <div class="container my-3">
+                <h3 class="text-center">{{paciente.Nombre}}</h3>
+                <div class="row">
+                  <div class="col-6">
+                    <h5 class="text-center">Genero: {{paciente.Genero}}</h5>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="text-center">Telefono: {{paciente.Telefono}}</h5>
+                  </div>
+                </div>
+                <hr>
+
+                <h4 class="text-center">Expediente:</h4>
+                <h5>Motivo de consulta: {{expediente.MotivoConsulta}}</h5>
+                <h5>Historial Médico: {{expediente.HistorialMedico}}</h5>
+
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Fecha: {{expediente.Fecha}}</td>
+                      <td>Altura: {{expediente.Altura}} m</td>
+                      <td>Peso: {{expediente.Peso}} kg</td>
+                    </tr>
+                    <tr>
+                      <td>Talla: {{expediente.Talla}} cm</td>
+                      <td>Presión: {{expediente.PresionArt}} mm Hg</td>
+                      <td>Pulso: {{expediente.PulsoCardiaco}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </mat-tab>
+          </div>
+        </mat-tab-group>
+      </section>
+    </div>
   </div>
-  </div>
+</div>

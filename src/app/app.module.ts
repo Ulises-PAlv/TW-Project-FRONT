@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { VideoComponent } from './components/room/video/video.component';
 import { RoomComponent } from './components/room/room.component';
+import { PDFOutPutComponent } from './components/pdfout-put/pdfout-put.component';
+import { RecetaComponent } from './components/receta/receta.component';
+// import { StatsNGraphsComponent } from './components/StatsNGraphs/stats-ngraphs.component';
 
 // !! ANGULAR MATERIAL
 import { AngularMaterialModule } from './material.module';
@@ -41,10 +44,13 @@ const config: SocketIoConfig = {url: 'http://localhost:3002', options: {withCred
     HomeComponent,
     RegisterComponent,
     WelcomeComponent,
+    RecetaComponent,
     RegisterPatientComponent,
     BuscarComponent,
     RoomComponent,
-    VideoComponent
+    VideoComponent,
+    PDFOutPutComponent,
+    // StatsNGraphsComponent
   ],
   imports: [
     BrowserModule,
